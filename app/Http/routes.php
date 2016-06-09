@@ -81,3 +81,11 @@ Route::get('test',function(){
     dump($a);
 
 });
+
+Route::get('home',['as'=>'home',function(){
+    return view('home');
+}]);
+
+Route::get('blog',['as'=>'blog',function(){
+    return view('blog');
+}]);

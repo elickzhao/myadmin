@@ -158,6 +158,7 @@ return [
 
         /*第三方插件*/
         Zizaco\Entrust\EntrustServiceProvider::class,
+        DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
     ],
 
     /*
@@ -206,6 +207,8 @@ return [
 
         /*第三方*/
         'Entrust' => Zizaco\Entrust\EntrustFacade::class,
+        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
+
     ],
 
 ];
