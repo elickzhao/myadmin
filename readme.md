@@ -1,27 +1,41 @@
-# Laravel PHP Framework
+# 是个人学习Larval 5.2 Rbac的例子而已.如果使用请去原仓库克隆.
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+-----
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+# Larval 5.2 Rbac 后台实例
 
-## Official Documentation
+## 说明
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+基于laravel 5.2 与 zizaco/entrust 权限管理
+开箱即用的后台模板.面包线,菜单栏都是基于权限来生成
+集成了laravel-debugbar 超好用调试工具
+带有日志解析查看模块
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+## 截图
 
-## Security Vulnerabilities
+## ![laravel rbac](http://o7ze7op4t.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20160530163207.png)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+![rbac](http://o7ze7op4t.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20160530163112.png)
+
+
+
+## 安装
+
+- git clone 到本地
+- 执行 `composer install` (如果出现数据库方面的错误提示,请将 database/seeds/rbac.sql 先导入你创建的数据库)
+- 配置 **.env** 中数据库连接信息,没有.env请复制.env.example命名为.env
+- 执行 `php artisan key:generate`
+- 执行 `php artisan db:seed`
+- 执行 `php artisan serve`
+- 键入 'localhost:8000/admin'
+- 默认后台账号:admin@admin.com 密码:admin
+
+
+## 使用
+- 用户管理中的权限管理添加顶级权限
+   比如用户管理, 'admin.user' 只有两段的做左边的菜单栏, 列表页统一为'admin.XXXX.index'
+   具体部分可以参照路由与源码,也可以QQ我176608671
