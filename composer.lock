@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ad816f011a8536dcf47a753a8d65e8dd",
-    "content-hash": "76c001c9a2f2fded09cf594ca8e8e75c",
+    "hash": "3ace4197ae194d9733399422f1dbc7c5",
+    "content-hash": "4cbf35b4ace7b141c76ff4ea53ffc40d",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -69,6 +69,46 @@
                 "sublime"
             ],
             "time": "2016-03-03 08:45:00"
+        },
+        {
+            "name": "caouecs/laravel-lang",
+            "version": "3.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/caouecs/Laravel-lang.git",
+                "reference": "52d7aba50e9585e1d29dedbeeb2bfdb1bc4cb041"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/caouecs/Laravel-lang/52d7aba50e9585e1d29dedbeeb2bfdb1bc4cb041.zip",
+                "reference": "52d7aba50e9585e1d29dedbeeb2bfdb1bc4cb041",
+                "shasum": ""
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "^1.10"
+            },
+            "suggest": {
+                "overtrue/laravel-lang": "Command to add languages in your project"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "caouecs",
+                    "email": "caouecs@caouecs.net"
+                }
+            ],
+            "description": "Languages for Laravel",
+            "keywords": [
+                "lang",
+                "languages",
+                "laravel",
+                "lpm"
+            ],
+            "time": "2016-05-23 05:54:40"
         },
         {
             "name": "classpreloader/classpreloader",
