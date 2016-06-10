@@ -10,7 +10,9 @@
         "barryvdh/laravel-ide-helper": "^2.1",
         "zizaco/entrust": "5.2.x-dev",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
-        "caouecs/laravel-lang": "^3.0"
+        "caouecs/laravel-lang": "^3.0",
+        "rap2hpoutre/laravel-log-viewer": "^0.6.1",
+        "arcanedev/log-viewer": "^3.10"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

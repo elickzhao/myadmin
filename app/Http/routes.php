@@ -89,3 +89,6 @@ Route::get('home',['as'=>'home',function(){
 Route::get('blog',['as'=>'blog',function(){
     return view('blog');
 }]);
+
+
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');

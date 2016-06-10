@@ -108,7 +108,7 @@ return [
     |
     */
 
-    'log' => env('APP_LOG', 'single'),
+    'log' => env('APP_LOG', 'daily'),
 
     /*
     |--------------------------------------------------------------------------
@@ -159,6 +159,8 @@ return [
         /*第三方插件*/
         Zizaco\Entrust\EntrustServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
+        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class, //这个是不需要后台那个日志查看系统
+        Arcanedev\LogViewer\LogViewerServiceProvider::class,
     ],
 
     /*
