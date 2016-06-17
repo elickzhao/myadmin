@@ -41,9 +41,17 @@ return [
             'provider' => 'users',
         ],
 
+        //其实这个主要作用就是把用户表分开
+        //比如这个后台管理员表,上面那个是前台用户登录表
+        //其中 driver为登录信息保存方式 provider 为数据表信息
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'adminUsers',
+        ],
+
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'adminUsers',
         ],
     ],
 
@@ -67,14 +75,21 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\User::class,     //他把这里改了
         ],
 
+        'adminUsers' => [
+            'driver' => 'eloquent',     //驱动方式
+            'model' => App\Models\AdminUser::class, //保存表模型类
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
     ],
+
+    //这个目前来说还不知道有啥用
+    'model'=> 'App\Models\AdminUser',
 
     /*
     |--------------------------------------------------------------------------

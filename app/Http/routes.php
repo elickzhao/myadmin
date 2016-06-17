@@ -15,6 +15,10 @@ use App\Models\Permission;
 use App\User;
 
 Route::get('/', function () {
+    echo Session::getId();
+    dump(Session::all());
+    dump($this->app);
+    dump($this->app['session']); //这个在$this->app 里的 aliases 数组里可以看到
     return view('welcome');
 });
 
@@ -92,3 +96,5 @@ Route::get('blog',['as'=>'blog',function(){
 
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+//这个是5.2新加的 就是添加 注册应用程序的典型身份验证路径
+Route::auth();

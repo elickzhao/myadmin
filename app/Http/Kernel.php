@@ -21,6 +21,7 @@ class Kernel extends HttpKernel
      * The application's route middleware groups.
      *
      * @var array
+     * 这里是5.2新加的,在5.1里web下面的中间件都在上面那个数组里
      */
     protected $middlewareGroups = [
         'web' => [

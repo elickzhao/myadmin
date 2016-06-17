@@ -29,6 +29,7 @@ class permChangeListener
         Cache::store('file')->forget('perms');//清理缓存
         Cache::store('file')->forget('menus');//清理缓存
 
+        //这个面包屑文件位置和官方的地方不同,但是配置文件也没有这个配置,不知道插件是否能自己找到
         $file_path = storage_path('framework/cache') . '/Breadcrumbs.php';
         if (file_exists($file_path))unlink($file_path); //删除文件重新生成
         $this->breadcrumbs($file_path);
