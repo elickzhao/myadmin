@@ -17,11 +17,12 @@ use App\User;
 Route::get('/', function () {
     echo Session::getId();
     dump(Session::all());
-    dump($this->app);
-    dump($this->app['session']); //这个在$this->app 里的 aliases 数组里可以看到
+    dump($this->app);   //这个和下面那个数组好像不是一回事
+    dump($this->app['session']); //这个在$this->app 里的 aliases 数组里可以看到 就是config/app.php里 用的是小写
     return view('welcome');
 });
 
+//权限测试
 Route::get('add',function(){
     // Cache为file时 会出现Cache不支持tag的错误
     //换成array就好了
@@ -79,6 +80,7 @@ Route::get('add',function(){
 
 });
 
+//这是测试权限
 Route::get('test',function(){
     $user = User::where('name','=','elick')->first();
     $a = $user->ability(['Admin','Owner'], ['manage_posts','manage_users']);
@@ -86,15 +88,18 @@ Route::get('test',function(){
 
 });
 
+//这个也是测试面包屑
 Route::get('home',['as'=>'home',function(){
     return view('home');
 }]);
 
+//这是为了测试面包屑
 Route::get('blog',['as'=>'blog',function(){
     return view('blog');
 }]);
 
-
+//这是为了测试log插件
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
 //这个是5.2新加的 就是添加 注册应用程序的典型身份验证路径
 Route::auth();

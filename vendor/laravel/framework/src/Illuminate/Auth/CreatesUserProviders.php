@@ -24,7 +24,8 @@ trait CreatesUserProviders
     public function createUserProvider($provider)
     {
         $config = $this->app['config']['auth.providers.'.$provider];
-
+        //customProviderCreators[] 这个在AuthManager里的provider()方法 是保存这个属性 但是好像目前登录验证并没有使用
+        //没有第一次取出后保存到数组里
         if (isset($this->customProviderCreators[$config['driver']])) {
             return call_user_func(
                 $this->customProviderCreators[$config['driver']], $this->app, $config

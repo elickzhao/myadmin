@@ -65,7 +65,8 @@ class AuthManager implements FactoryContract
     public function guard($name = null)
     {
         $name = $name ?: $this->getDefaultDriver();
-        //这里不太懂了 $this->guards[$name] 第一次读取后 啥时保存到数组里的 没发现
+        //[!- 这里不太懂了 $this->guards[$name] 第一次读取后 啥时保存到数组里的 没发现 -]
+        //真实傻了 $this->guards[$name] = $this->resolve($name); 这里得到后就赋值了 真实笨死了
         return isset($this->guards[$name])
                     ? $this->guards[$name]
                     : $this->guards[$name] = $this->resolve($name);
@@ -86,7 +87,8 @@ class AuthManager implements FactoryContract
         if (is_null($config)) {
             throw new InvalidArgumentException("Auth guard [{$name}] is not defined.");
         }
-
+        //下面的extend()方法是保存到这个数组属性里,但是好像并没用应用.有个viaRequest()方法是使用extend()的
+        //但是不知道在什么情况时用.
         if (isset($this->customCreators[$config['driver']])) {
             return $this->callCustomCreator($name, $config);
         } else {
@@ -255,8 +257,12 @@ class AuthManager implements FactoryContract
         return $this;
     }
 
+    //下面这两个方法都是把使用过的保存到属性里,不过好像没有具体使用的地方
+
     /**
      * Register a custom driver creator Closure.
+     *
+     * /注册一个自定义驱动程序的创建者的闭包
      *
      * @param  string  $driver
      * @param  \Closure  $callback
@@ -271,6 +277,8 @@ class AuthManager implements FactoryContract
 
     /**
      * Register a custom provider creator Closure.
+     *
+     * 注册一个自定义提供程序的创建者闭包
      *
      * @param  string  $name
      * @param  \Closure  $callback
