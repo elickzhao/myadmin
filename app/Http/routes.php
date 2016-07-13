@@ -20,6 +20,7 @@ Route::get('/', function () {
 //    dump($this->app);   //这个和下面那个数组好像不是一回事
 //    dump($this->app['session']); //这个在$this->app 里的 aliases 数组里可以看到 就是config/app.php里 用的是小写
     return view('home');
+
     //return view('welcome');
 });
 
@@ -27,7 +28,7 @@ Route::get('admin', function () {
     return redirect('/admin/index');
 });
 
-Route::get('admin/index', ['as' => 'admin.index', 'middleware' => ['auth','menu'], 'uses'=>'Admin\\IndexController@index']);
+Route::get('admin/index', ['as' => 'admin.index', 'middleware' => ['authAdmin','menu'], 'uses'=>'Admin\\IndexController@index']);
 
 $this->group(['namespace' => 'Admin','prefix' => '/admin',], function () {
     Route::auth();

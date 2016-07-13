@@ -75,7 +75,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,     //他把这里改了
+            'model' => App\User::class,     //他把这里改了  //哦 原作者是把这里直接改了 我是添加了下面
         ],
 
         'adminUsers' => [

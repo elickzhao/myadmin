@@ -51,8 +51,14 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         //权限方面
-        'role' => \Zizaco\Entrust\Middleware\EntrustRole::class,
-        'permission' => \Zizaco\Entrust\Middleware\EntrustPermission::class,
-        'ability' => \Zizaco\Entrust\Middleware\EntrustAbility::class,
+//        'role' => \Zizaco\Entrust\Middleware\EntrustRole::class,
+//        'permission' => \Zizaco\Entrust\Middleware\EntrustPermission::class,
+//        'ability' => \Zizaco\Entrust\Middleware\EntrustAbility::class,
+
+        //上面那个是Entrust自带的,下面是作者自己改写的
+        //自定义检测权限
+        'permission' => \App\Http\Middleware\Permission::class,
+        'authAdmin' => \App\Http\Middleware\AuthenticateAdmin::class,
+        'menu'=>\App\Http\Middleware\GetMenu::class,
     ];
 }
