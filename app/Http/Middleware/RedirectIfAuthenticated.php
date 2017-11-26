@@ -32,6 +32,8 @@ class RedirectIfAuthenticated
         //根据配置如果是session 那么登录后会保存一个"login_admin_59ba36addc2b2f9401580f014c7f58ea4e30989d" => 2
         //这里login是固定的 admin是guard配置名后面是随机数 这个session的key的值 就是自定义用户表里的用户id
         //然后通过id获取用户信息 拼根据此判断是否登录 没有用户信息就是没登陆
+        //接着补充,return ! is_null($this->user()) 是user()里,如果登陆后会有session就会取得用户id,如果没有的话将会返回 null
+        //check()根据is_null()返回bool值 这些代码在GuardHelpers里最好看5.1文档,5.2把这个文件拆分成了SessionGuard和TokenGuard.
         if (Auth::guard($guard)->check()) {
             return redirect('/');
         }

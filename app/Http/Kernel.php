@@ -48,7 +48,7 @@ class Kernel extends HttpKernel
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
-        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,     //这个名字太误导了,并不是guest账户可以登录的页面.而是登陆后的帐号就跳转的页面.
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         //权限方面
 //        'role' => \Zizaco\Entrust\Middleware\EntrustRole::class,

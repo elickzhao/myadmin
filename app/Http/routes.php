@@ -17,8 +17,10 @@ use App\User;
 Route::get('/', function () {
 //    echo Session::getId();
 //    dump(Session::all());
-//    dump($this->app);   //这个和下面那个数组好像不是一回事
-//    dump($this->app['session']); //这个在$this->app 里的 aliases 数组里可以看到 就是config/app.php里 用的是小写
+    dump($this->app);   //这个和下面那个数组好像不是一回事  //$this->app 是一个laravel实例
+    //下面以前写的是错误的,$this->app['session'] 返回的是Session的一个实例,并不是门面,虽然门面里也有他存在
+    dump($this->app['session']); //这个在$this->app 里的 aliases 数组里可以看到 就是config/app.php里 用的是小写 // aliases 就是别名了 也就是启用的门面
+    $user = Auth::user();
     return view('home');
 
     //return view('welcome');
@@ -64,7 +66,8 @@ $router->group(['namespace' => 'Admin', 'middleware' => ['auth','authAdmin','men
 });
 
 
-
+//这个生成是根目录下login那么admin下的呢
+//这个真神了admin下也能找到auth位置
 Route::auth();
 
 Route::get('/home',function(){

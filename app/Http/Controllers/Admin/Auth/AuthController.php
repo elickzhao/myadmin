@@ -30,6 +30,8 @@ class AuthController extends Controller
      *
      * 这个Auth目录基本上就是把Controllers/Auth 照搬过来
      * 就是多了下面这些定义跳转目录和模版而已
+     *
+     * 这个控制器是处理登录,注册等相关操作的,是根据routes里Route::auth();创建的路由指向这里的
      */
     protected $redirectAfterLogout = '/admin/login';
     protected $redirectTo = '/admin';
@@ -51,6 +53,7 @@ class AuthController extends Controller
         //原来这个 : 是分割参数的 前面是中间:后面是参数值 这里应该是RedirectIfAuthenticated类的第三个参数$guard
         //他在配置文件$this->app['config']["auth.guards.{$name}"] 数组里多加了个admin  这个就是取得这个配置 其实和web是一样的
         //好像昨天想错了 这里排除了 logout 说明什么? 可能是login的时候不需要验证登录token 要不肯定会报错的
+        //guest这个中间件这个名字太误导了,并不是guest账户可以登录的页面.而是登陆后的帐号就跳转的到主页面. 比如login,register页面登录后就不需要显示了
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
 
